@@ -1,0 +1,67 @@
+# Data configuration
+data:
+  n_samples: 10000
+  test_size: 0.2
+  val_size: 0.1
+  random_seed: 42
+  
+# Feature configuration
+features:
+  miles_driven:
+    mean: 800
+    std: 200
+    unit: "km/month"
+  electricity_usage:
+    mean: 300
+    std: 100
+    unit: "kWh/month"
+  meat_consumption:
+    mean: 15
+    std: 5
+    unit: "kg/month"
+  flights:
+    lambda: 0.5
+    unit: "flights/month"
+  recycling_rate:
+    min: 0
+    max: 1
+    unit: "proportion"
+
+# Model configuration
+models:
+  linear_regression:
+    enabled: true
+  random_forest:
+    enabled: true
+    n_estimators: 100
+    max_depth: 10
+  xgboost:
+    enabled: true
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+  neural_network:
+    enabled: true
+    hidden_layers: [64, 32]
+    activation: "relu"
+    epochs: 50
+    batch_size: 32
+    learning_rate: 0.001
+
+# Evaluation configuration
+evaluation:
+  metrics:
+    - "rmse"
+    - "mae"
+    - "r2"
+    - "mape"
+    - "smape"
+  cross_validation:
+    enabled: true
+    cv_folds: 5
+
+# Visualization configuration
+visualization:
+  figure_size: [12, 8]
+  style: "seaborn-v0_8"
+  color_palette: "viridis"
